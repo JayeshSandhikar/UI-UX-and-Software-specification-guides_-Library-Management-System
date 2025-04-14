@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Membership Requests - Staff Panel</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f4f7fa;
+      color: #333;
+    }
+
+    /* Header styles */
+    .header {
+      background-color: #2c3e50;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: white;
+    }
+
+    .logo img {
+      height: 40px;
+      vertical-align: middle;
+    }
+
+    .header-buttons a {
+      margin-left: 15px;
+      padding: 8px 16px;
+      background-color: #34495e;
+      color: white;
+      text-decoration: none;
+      border-radius: 4px;
+      transition: background-color 0.3s;
+    }
+
+    .header-buttons a:hover {
+      background-color: #1a252f;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 50px auto;
+      padding: 20px;
+    }
+
+    .back-button {
+      display: inline-block;
+      margin-bottom: 20px;
+      padding: 10px 20px;
+      background-color: #2c3e50;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 6px;
+      transition: background-color 0.3s;
+    }
+
+    .back-button:hover {
+      background-color: #1a252f;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #2c3e50;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    th, td {
+      padding: 15px;
+      text-align: center;
+      border-bottom: 1px solid #ddd;
+    }
+
+    th {
+      background-color: #2c3e50;
+      color: white;
+    }
+
+    tr:hover {
+      background-color: #f1f1f1;
+    }
+
+    .action-buttons button {
+      margin: 0 5px;
+      padding: 6px 12px;
+      border: none;
+      border-radius: 4px;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .approve {
+      background-color: #28a745;
+    }
+
+    .approve:hover {
+      background-color: #218838;
+    }
+
+    .reject {
+      background-color: #dc3545;
+    }
+
+    .reject:hover {
+      background-color: #c82333;
+    }
+
+    @media (max-width: 768px) {
+      table, thead, tbody, th, td, tr {
+        display: block;
+      }
+
+      th {
+        text-align: left;
+      }
+
+      td {
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+      }
+
+      td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 10px;
+        font-weight: bold;
+      }
+
+      .header {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .header-buttons {
+        margin-top: 10px;
+      }
+
+      .header-buttons a {
+        display: inline-block;
+        margin: 5px 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header with logo and buttons -->
+  <div class="header">
+    <div class="logo">
+      <a href="staff-dashboard.html">
+        <img src="logo.png" alt="Library Logo" />
+      </a>
+    </div>
+    <div class="header-buttons">
+      <a href="staff_dashboard.html">Dashboard</a>
+      <a href="login.html">Logout</a>
+    </div>
+  </div>
+
+  <div class="container">
+  
+    <h1>Membership Requests</h1>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Request ID</th>
+          <th>User Name</th>
+          <th>Email</th>
+          <th>Request Date</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td data-label="Request ID">MEM001</td>
+          <td data-label="User Name">Alice Johnson</td>
+          <td data-label="Email">alice@example.com</td>
+          <td data-label="Request Date">2025-04-09</td>
+          <td data-label="Action" class="action-buttons">
+            <button class="approve">Approve</button>
+            <button class="reject">Reject</button>
+          </td>
+        </tr>
+        <tr>
+          <td data-label="Request ID">MEM002</td>
+          <td data-label="User Name">Bob Smith</td>
+          <td data-label="Email">bob@example.com</td>
+          <td data-label="Request Date">2025-04-08</td>
+          <td data-label="Action" class="action-buttons">
+            <button class="approve">Approve</button>
+            <button class="reject">Reject</button>
+          </td>
+        </tr>
+        <!-- Add more rows as needed -->
+      </tbody>
+    </table>
+  </div>
+
+</body>
+</html>

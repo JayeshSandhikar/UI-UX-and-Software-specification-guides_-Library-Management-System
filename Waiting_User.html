@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Waiting Requests - Library Dashboard</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f4f7f6;
+      color: #333;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+      background-color: #fff;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    header img {
+      height: 60px;
+    }
+
+    nav {
+      display: flex;
+      gap: 30px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 600;
+      position: relative;
+      padding: 5px 0;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #4CAF50;
+    }
+
+    main {
+      padding: 40px 20px;
+    }
+
+    .container {
+      padding: 30px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background-color: white;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card h3 {
+      margin-top: 0;
+      color: #f39c12;
+    }
+
+    .card p {
+      margin: 8px 0;
+    }
+
+    .status {
+      background-color: #f39c12;
+      color: white;
+      padding: 5px 10px;
+      border-radius: 5px;
+      display: inline-block;
+      margin-top: 10px;
+      font-size: 0.9rem;
+    }
+
+    .cancel-btn {
+      margin-top: 15px;
+      display: inline-block;
+      padding: 8px 12px;
+      background-color: #e74c3c;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+      font-size: 0.9rem;
+    }
+
+    .cancel-btn:hover {
+      background-color: #c0392b;
+    }
+
+    /* Logout Button */
+    nav a.logout {
+      background-color: #e53935;
+      padding: 10px 20px;
+      border-radius: 25px;
+      color: white;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+
+    nav a.logout:hover {
+      background-color: #c62828;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="logo.png" alt="Library Logo">
+    <nav>
+      <a href="Member_Dashboard.html">Dashboard</a>
+      <a href="index.html"  >Logout</a>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Waiting Book Requests</h2>
+
+    <div class="container">
+
+      <div class="card">
+        <h3>Request ID: WR001</h3>
+        <p>Book: Advanced Python Programming</p>
+        <p>Request Date: 05-Apr-2025</p>
+        <div class="status">Waiting</div>
+        <p><small>Book currently unavailable, awaiting restock.</small></p>
+        <a href="#" class="cancel-btn">Cancel Request</a>
+      </div>
+
+      <div class="card">
+        <h3>Request ID: WR002</h3>
+        <p>Book: Yoga for Life</p>
+        <p>Request Date: 03-Apr-2025</p>
+        <div class="status">Waiting</div>
+        <p><small>Book currently unavailable, awaiting restock.</small></p>
+        <a href="#" class="cancel-btn">Cancel Request</a>
+      </div>
+
+      <div class="card">
+        <h3>Request ID: WR003</h3>
+        <p>Book: The Future of AI</p>
+        <p>Request Date: 02-Apr-2025</p>
+        <div class="status">Waiting</div>
+        <p><small>Book currently unavailable, awaiting restock.</small></p>
+        <a href="#" class="cancel-btn">Cancel Request</a>
+      </div>
+
+      <div class="card">
+        <h3>Request ID: WR004</h3>
+        <p>Book: Readers' Journey</p>
+        <p>Request Date: 01-Apr-2025</p>
+        <div class="status">Waiting</div>
+        <p><small>Book currently unavailable, awaiting restock.</small></p>
+        <a href="#" class="cancel-btn">Cancel Request</a>
+      </div>
+
+      <div class="card">
+        <h3>Request ID: WR005</h3>
+        <p>Book: Science Behind Yoga</p>
+        <p>Request Date: 30-Mar-2025</p>
+        <div class="status">Waiting</div>
+        <p><small>Book currently unavailable, awaiting restock.</small></p>
+        <a href="#" class="cancel-btn">Cancel Request</a>
+      </div>
+
+    </div>
+
+  </main>
+
+</body>
+</html>

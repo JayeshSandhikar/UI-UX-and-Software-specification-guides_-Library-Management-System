@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Open Requests - Open Community Library</title>
+  <style>
+    /* Global Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    body {
+      background-color: #f4f7f6;
+      color: #333;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+      background-color: #fff;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    header img {
+      height: 60px;
+    }
+    nav {
+      display: flex;
+      gap: 30px;
+    }
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 600;
+      position: relative;
+      padding: 5px 0;
+      transition: color 0.3s ease;
+    }
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      background: #4CAF50;
+      left: 0;
+      bottom: 0;
+      transition: width 0.3s ease;
+    }
+    nav a:hover {
+      color: #4CAF50;
+    }
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    main {
+      padding: 40px 20px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #2e7d32;
+    }
+
+    .cards-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .request-card {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .request-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+    }
+
+    .request-card h3 {
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    .request-card p {
+      margin: 6px 0;
+      color: #555;
+      font-size: 15px;
+    }
+
+    .status {
+      font-weight: bold;
+      color: #2e7d32;
+    }
+
+    .actions {
+      margin-top: 15px;
+    }
+
+    .actions button {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 25px;
+      padding: 8px 16px;
+      margin-right: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .actions button:hover {
+      background-color: #388e3c;
+    }
+
+    .actions .close-btn {
+      background-color: #e53935;
+    }
+
+    .actions .close-btn:hover {
+      background-color: #c62828;
+    }
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="logo.png" alt="Library Logo">
+    <nav>
+      <a href="Member_Dashboard.html">Dashboard</a>
+ <a href="index.html">Logout</a>
+    </nav>
+  </header>
+
+  <main>
+    <h2>My Open Book Requests</h2>
+    <div class="cards-container">
+      
+      <!-- ... Keep everything as before ... -->
+
+<div class="cards-container">
+  
+  <div class="request-card">
+    <h3>Request ID: RQ12345</h3>
+    <p>Status: <span class="status">Raised</span></p>
+    <p>Next Step: Awaiting Librarian Review</p>
+    <p>Expected Pickup: --/--/----</p>
+    <div class="actions">
+      <button>Accept</button>
+      <button class="close-btn">Close Request</button>
+    </div>
+  </div>
+
+  <div class="request-card">
+    <h3>Request ID: RQ67890</h3>
+    <p>Status: <span class="status">Received by Librarian</span></p>
+    <p>Next Step: Approval in Progress</p>
+    <p>Expected Pickup: --/--/----</p>
+    <div class="actions">
+      <button>Accept</button>
+      <button class="close-btn">Close Request</button>
+    </div>
+  </div>
+
+  <div class="request-card">
+    <h3>Request ID: RQ54321</h3>
+    <p>Status: <span class="status">Approved by Librarian</span></p>
+    <p>Pickup Date: 15-Apr-2025</p>
+    <div class="actions">
+      <button>Accept</button>
+      <button class="close-btn">Close Request</button>
+    </div>
+  </div>
+
+  <div class="request-card">
+    <h3>Request ID: RQ98765</h3>
+    <p>Status: <span class="status" style="color: red;">Denied</span></p>
+    <p>Pickup Date: Not Applicable</p>
+    <div class="actions">
+      <button disabled>Accept</button>
+      <button class="close-btn">Close Request</button>
+    </div>
+  </div>
+
+  <!-- 📌 New "Waiting" Status Example -->
+  <div class="request-card">
+    <h3>Request ID: RQ11223</h3>
+    <p>Status: <span class="status" style="color: orange;">Waiting</span></p>
+    <p>Next Step: Awaiting Book Availability</p>
+    <p>Expected Pickup: --/--/----</p>
+    <div class="actions">
+      <button>Accept</button>
+      <button class="close-btn">Close Request</button>
+    </div>
+  </div>
+
+</div>
+
+<!-- ... Keep rest as is ... -->
+
+	  
+
+      <!-- Add more cards as needed -->
+
+    </div>
+  </main>
+
+</body>
+</html>

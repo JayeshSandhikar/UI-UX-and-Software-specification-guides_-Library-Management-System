@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Create Alert - Staff Panel</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f4f7fa;
+      color: #333;
+    }
+
+    .header {
+      background-color: #2c3e50;
+      color: white;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .header img {
+      height: 40px; /* Adjust size as needed */
+    }
+
+    .header a {
+      color: white;
+      text-decoration: none;
+      padding: 10px 20px;
+      background-color: #1a252f;
+      border-radius: 6px;
+      transition: background-color 0.3s;
+    }
+
+    .header a:hover {
+      background-color: #34495e;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 50px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #2c3e50;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    input[type="text"],
+    textarea,
+    input[type="date"] {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
+      margin-bottom: 20px;
+      box-sizing: border-box;
+      transition: border-color 0.3s;
+    }
+
+    input[type="text"]:focus,
+    textarea:focus,
+    input[type="date"]:focus {
+      border-color: #2c3e50;
+      outline: none;
+    }
+
+    textarea {
+      resize: vertical;
+      height: 120px;
+    }
+
+    input[disabled] {
+      background-color: #f0f0f0;
+      color: #555;
+      cursor: not-allowed;
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      background-color: #2c3e50;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+
+    button:hover {
+      background-color: #1a252f;
+      transform: translateY(-1px);
+    }
+
+    .confirmation {
+      display: none;
+      margin-top: 20px;
+      text-align: center;
+      color: green;
+      font-weight: bold;
+      animation: fadeIn 0.5s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header with Logo, Dashboard, and Logout Buttons -->
+  <div class="header">
+    <img src="logo.png" alt="Logo" /> <!-- Replace with your logo image path -->
+    <div>
+      <a href="staff_dashboard.html">Dashboard</a>
+      <a href="login.html" >Logout</a>
+    </div>
+  </div>
+
+  <!-- Main content for creating alert -->
+  <div class="container">
+    <h1>Create Alert</h1>
+
+    <form id="alertForm">
+      <label for="memberId">Member ID</label>
+      <input type="text" id="memberId" placeholder="Enter Member ID..." required />
+
+      <label for="memberEmail">Email</label>
+      <input type="text" id="memberEmail" placeholder="Email will auto-fill" disabled />
+
+      <label for="memberPhone">Mobile Number</label>
+      <input type="text" id="memberPhone" placeholder="Mobile number will auto-fill" disabled />
+
+      <label for="alertTitle">Alert Title</label>
+      <input type="text" id="alertTitle" placeholder="Enter alert title..." required />
+
+      <label for="alertDescription">Alert Description</label>
+      <textarea id="alertDescription" placeholder="Enter alert description..." required></textarea>
+
+      <label for="expiryDate">Expected Date</label>
+      <input type="date" id="expiryDate" />
+
+      <button type="submit">Create Alert</button>
+    </form>
+
+    <div class="confirmation" id="confirmationMessage">
+      ✅ Alert Created Successfully!
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById('alertForm');
+    const confirmationMessage = document.getElementById('confirmationMessage');
+
+    const memberIdField = document.getElementById('memberId');
+    const memberEmailField = document.getElementById('memberEmail');
+    const memberPhoneField = document.getElementById('memberPhone');
+
+    const memberDatabase = {
+      "123": { email: "john.doe@example.com", phone: "9876543210" },
+      "456": { email: "jane.smith@example.com", phone: "9123456789" },
+      "789": { email: "alex.lee@example.com", phone: "9988776655" },
+    };
+
+    memberIdField.addEventListener('input', function() {
+      const memberId = memberIdField.value.trim();
+      if (memberDatabase[memberId]) {
+        memberEmailField.value = memberDatabase[memberId].email;
+        memberPhoneField.value = memberDatabase[memberId].phone;
+      } else {
+        memberEmailField.value = '';
+        memberPhoneField.value = '';
+      }
+    });
+
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      console.log({
+        memberId: memberIdField.value,
+        memberEmail: memberEmailField.value,
+        memberPhone: memberPhoneField.value,
+        alertTitle: document.getElementById('alertTitle').value,
+        alertDescription: document.getElementById('alertDescription').value,
+        expiryDate: document.getElementById('expiryDate').value
+      });
+
+      confirmationMessage.style.display = 'block';
+      form.reset();
+      memberEmailField.value = '';
+      memberPhoneField.value = '';
+
+      setTimeout(() => {
+        confirmationMessage.style.display = 'none';
+      }, 3000);
+    });
+
+    function logout() {
+      alert("Logging out..."); // Placeholder for logout functionality
+      // Implement logout functionality based on your back-end
+    }
+  </script>
+</body>
+</html>

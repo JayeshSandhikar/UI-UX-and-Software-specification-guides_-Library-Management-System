@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Member Dashboard - Open Community Library</title>
+  <style>
+    /* Global Reset & Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    body {
+      background-color: #f4f7f6;
+      color: #333;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+      background-color: #fff;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    header img {
+      height: 60px;
+    }
+    nav {
+      display: flex;
+      gap: 30px;
+    }
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 600;
+      position: relative;
+      padding: 5px 0;
+      transition: color 0.3s ease;
+    }
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      background: #4CAF50;
+      left: 0;
+      bottom: 0;
+      transition: width 0.3s ease;
+    }
+    nav a:hover {
+      color: #4CAF50;
+    }
+    nav a:hover::after {
+      width: 100%;
+    }
+    main {
+      padding: 40px 50px;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 40px;
+      color: #2e7d32;
+    }
+    /* Dashboard Grid Styles */
+    .dashboard-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+    .menu-box {
+      background-color: #fff;
+      border-radius: 12px;
+      padding: 30px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+    .menu-box:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    }
+    .menu-box h3 {
+      font-size: 18px;
+      color: #333;
+      margin-bottom: 10px;
+    }
+    .menu-box p {
+      font-size: 14px;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="logo.png" alt="Library Logo">
+    <nav>
+      <a href="Login.html">Log-Off</a>
+    
+    </nav>
+  </header>
+
+  <main>
+    <h1>Member Dashboard</h1>
+    <div class="dashboard-container">
+      <div class="menu-box" onclick="location.href='Subscription.html'">
+        <h3>Subscription Status</h3>
+        <p>View your subscription details</p>
+      </div>
+      <div class="menu-box" onclick="location.href='Raise_Req.html'">
+        <h3>Raise Request</h3>
+        <p>Submit a new request</p>
+      </div>
+      <div class="menu-box" onclick="location.href='Track_MY_REq.html'">
+        <h3>Open Request</h3>
+        <p>View your open requests</p>
+      </div>
+      <div class="menu-box" onclick="location.href='Closed_Req.html'">
+        <h3>Closed Request</h3>
+        <p>Review completed requests</p>
+      </div>
+      <div class="menu-box" onclick="location.href='Waiting_User.html'">
+        <h3>Waiting</h3>
+        <p>Requests pending action</p>
+      </div>
+      <div class="menu-box" onclick="location.href='Explore_User.html'">
+        <h3>Explore</h3>
+        <p>Browse our collection</p>
+      </div>
+      <div class="menu-box" onclick="location.href='holding_assets.html'">
+        <h3>Holding Assets</h3>
+        <p>View your borrowed items</p>
+      </div>
+      <div class="menu-box" onclick="location.href='ExpiringAsset_User.html'">
+        <h3>Expiring Assets</h3>
+        <p>Check due dates</p>
+      </div>
+      <div class="menu-box" onclick="location.href='Alerts_Members.html'">
+        <h3>Alerts</h3>
+        <p>Alerts & Notifications</p>
+      </div>
+    </div>
+  </main>
+
+</body>
+</html>

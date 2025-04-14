@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Explore Books - Community Library</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f4f7f8;
+      margin: 0;
+      padding: 20px;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+      background-color: #fff;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    header img {
+      height: 60px;
+    }
+
+    nav {
+      display: flex;
+      gap: 30px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 600;
+      position: relative;
+      padding: 5px 0;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #4CAF50;
+    }
+
+    main {
+      padding: 40px 20px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .filter-section {
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      margin-bottom: 30px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      justify-content: center;
+    }
+
+    .filter-section input,
+    .filter-section select {
+      padding: 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      min-width: 180px;
+    }
+
+    .filter-section button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      background-color: #4CAF50;
+      color: white;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .filter-section button:hover {
+      background-color: #45a049;
+    }
+
+    .books-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .book-card {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      width: 200px;
+      padding: 15px;
+      text-align: center;
+      transition: transform 0.2s;
+    }
+
+    .book-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .book-card img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .book-card h3 {
+      font-size: 1.1em;
+      margin: 10px 0 5px;
+    }
+
+    .book-card p {
+      margin: 4px 0;
+      color: #555;
+      font-size: 0.9em;
+    }
+
+    /* Logout Button */
+    nav a.logout {
+      background-color: #e53935;
+      padding: 10px 20px;
+      border-radius: 25px;
+      color: white;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+
+    nav a.logout:hover {
+      background-color: #c62828;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="logo.png" alt="Library Logo">
+    <nav>
+      <a href="Member_Dashboard.html">Dashboard</a>
+    
+      <a href="index.html"  >Logout</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Explore Books</h1>
+
+    <div class="filter-section">
+      <input type="text" placeholder="Book Name" id="filterName" />
+      <input type="text" placeholder="Book ID" id="filterId" />
+      <input type="text" placeholder="Subject" id="filterSubject" />
+      <input type="text" placeholder="Genre" id="filterGenre" />
+      <input type="text" placeholder="Author" id="filterAuthor" />
+      <input type="text" placeholder="Language" id="filterLanguage" />
+      <input type="text" placeholder="Tags" id="filterTags" />
+      <select id="filterBestseller">
+        <option value="">Bestseller?</option>
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+      </select>
+      <button onclick="searchBooks()">Search</button>
+      <button onclick="resetFilters()">Reset</button>
+    </div>
+
+    <div class="books-container" id="booksContainer">
+      <!-- Book cards will appear here -->
+    </div>
+  </main>
+
+  <script>
+    const books = [
+      { name: "The Silent Patient", genre: "Thriller", subject: "Psychology", author: "Alex Michaelides", language: "English", bestseller: "Yes", tags: "Mystery", id: "B001", image: "https://via.placeholder.com/150" },
+      { name: "Atomic Habits", genre: "Self-Help", subject: "Personal Growth", author: "James Clear", language: "English", bestseller: "Yes", tags: "Habits", id: "B002", image: "https://via.placeholder.com/150" },
+      { name: "Sapiens", genre: "History", subject: "Anthropology", author: "Yuval Noah Harari", language: "English", bestseller: "Yes", tags: "Evolution", id: "B003", image: "https://via.placeholder.com/150" },
+      { name: "Brief Answers to the Big Questions", genre: "Science", subject: "Physics", author: "Stephen Hawking", language: "English", bestseller: "Yes", tags: "Cosmology", id: "B004", image: "https://via.placeholder.com/150" },
+      { name: "Becoming", genre: "Biography", subject: "Memoir", author: "Michelle Obama", language: "English", bestseller: "Yes", tags: "Inspiration", id: "B005", image: "https://via.placeholder.com/150" },
+      { name: "Ikigai", genre: "Self-Help", subject: "Philosophy", author: "Francesc Miralles", language: "English", bestseller: "Yes", tags: "Japanese", id: "B006", image: "https://via.placeholder.com/150" },
+      { name: "The Alchemist", genre: "Fiction", subject: "Adventure", author: "Paulo Coelho", language: "English", bestseller: "Yes", tags: "Dreams", id: "B007", image: "https://via.placeholder.com/150" },
+      // Add more books as you like
+    ];
+
+    function searchBooks() {
+      const name = document.getElementById('filterName').value.toLowerCase();
+      const id = document.getElementById('filterId').value.toLowerCase();
+      const subject = document.getElementById('filterSubject').value.toLowerCase();
+      const genre = document.getElementById('filterGenre').value.toLowerCase();
+      const author = document.getElementById('filterAuthor').value.toLowerCase();
+      const language = document.getElementById('filterLanguage').value.toLowerCase();
+      const tags = document.getElementById('filterTags').value.toLowerCase();
+      const bestseller = document.getElementById('filterBestseller').value;
+
+      const filteredBooks = books.filter(book => {
+        return (!name || book.name.toLowerCase().includes(name)) &&
+               (!id || book.id.toLowerCase().includes(id)) &&
+               (!subject || book.subject.toLowerCase().includes(subject)) &&
+               (!genre || book.genre.toLowerCase().includes(genre)) &&
+               (!author || book.author.toLowerCase().includes(author)) &&
+               (!language || book.language.toLowerCase().includes(language)) &&
+               (!tags || book.tags.toLowerCase().includes(tags)) &&
+               (!bestseller || book.bestseller === bestseller);
+      });
+
+      displayBooks(filteredBooks);
+    }
+
+    function displayBooks(bookList) {
+      const container = document.getElementById('booksContainer');
+      container.innerHTML = '';
+      if (bookList.length === 0) {
+        container.innerHTML = '<p>No books found matching your criteria.</p>';
+        return;
+      }
+      bookList.forEach(book => {
+        container.innerHTML += `
+          <div class="book-card">
+            <img src="${book.image}" alt="${book.name}">
+            <h3>${book.name}</h3>
+            <p><strong>Genre:</strong> ${book.genre}</p>
+            <p><strong>Subject:</strong> ${book.subject}</p>
+            <p><strong>Author:</strong> ${book.author}</p>
+            <p><strong>Language:</strong> ${book.language}</p>
+            <button onclick="requestBook('${book.id}')">Request</button>
+          </div>
+        `;
+      });
+    }
+
+    function requestBook(bookId) {
+      alert(`Request placed for Book ID: ${bookId}`);
+    }
+
+    function resetFilters() {
+      document.querySelectorAll('.filter-section input, .filter-section select').forEach(input => input.value = '');
+      document.getElementById('booksContainer').innerHTML = '';
+    }
+  </script>
+
+</body>
+</html>

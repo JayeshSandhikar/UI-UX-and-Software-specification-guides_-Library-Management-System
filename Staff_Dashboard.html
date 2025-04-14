@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Staff Dashboard</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f4f7fa;
+      color: #333;
+    }
+
+    .dashboard-container {
+      max-width: 1200px;
+      margin: 50px auto;
+      padding: 20px;
+      text-align: center;
+      position: relative;
+    }
+
+    h1 {
+      margin-bottom: 40px;
+      color: #2c3e50;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background-color: #ffffff;
+      padding: 30px 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+      background-color: #eaf3fc;
+    }
+
+    .back-button {
+      position: absolute;
+      top: 20px;
+      right: 20px; /* Moved to right side */
+      text-decoration: none;
+      color: #2c3e50;
+      font-weight: bold;
+      font-size: 16px;
+      background-color: #ffffff;
+      padding: 8px 12px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.2s, box-shadow 0.2s;
+    }
+
+    .back-button:hover {
+      background-color: #eaf3fc;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="dashboard-container">
+
+    <a href="login.html" class="back-button">Logout</a>
+
+    <h1>Staff Dashboard</h1>
+    <div class="card-grid">
+      <div class="card" onclick="location.href='Received Requests_Staff_Panel.html'">Received Request</div>
+      <div class="card" onclick="location.href='Book_Count.html'">Book Count</div>
+      <div class="card" onclick="location.href='Expied_Allowed_Time_Staff.html'">Expired Allowed Time</div>
+      <div class="card" onclick="location.href='Closed_Req_Staff.html'">Closed Request</div>
+      <div class="card"onclick = "location.href='Waiting_Staff_dashboard.html'">Waiting_Ready to be Approve</div>
+      <div class="card" onclick = "location.href='Membership_Req_Staff.html'">Membership Request</div>
+      <div class="card" onclick ="location.href='Terminate-Membership_staff.html'">Terminate Membership</div>
+      <div class="card" onclick ="location.href='Create_Alert.html'">Create Alert</div>
+    </div>
+  </div>
+</body>
+
+</html>

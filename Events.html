@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Events - Open Community Library</title>
+  <style>
+    /* Global Reset & Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    body {
+      background-color: #f4f7f6;
+      color: #333;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+      background-color: #fff;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    header img {
+      height: 60px;
+    }
+    nav {
+      display: flex;
+      gap: 30px;
+    }
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 600;
+      position: relative;
+      padding: 5px 0;
+      transition: color 0.3s ease;
+    }
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      background: #4CAF50;
+      left: 0;
+      bottom: 0;
+      transition: width 0.3s ease;
+    }
+    nav a:hover {
+      color: #4CAF50;
+    }
+    nav a:hover::after {
+      width: 100%;
+    }
+    main {
+      padding: 40px 50px;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #2e7d32;
+    }
+    .events-section {
+      margin-bottom: 40px;
+    }
+    .events-section h2 {
+      margin-bottom: 20px;
+      color: #4CAF50;
+    }
+    .events-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .event-card {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .event-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    }
+    .event-card h3 {
+      margin-bottom: 10px;
+      font-size: 20px;
+      color: #333;
+    }
+    .event-card p {
+      font-size: 14px;
+      color: #777;
+      margin-bottom: 5px;
+    }
+    .event-card .date {
+      font-weight: bold;
+      color: #4CAF50;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #fff;
+      margin-top: 40px;
+      box-shadow: 0 -2px 8px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="Logo.png" alt="Library Logo">
+    <nav>
+      <a href="index.html">Home</a>
+     <a href="Explore.html">Explore</a>
+      <a href="Login.html">Login</a>
+      <a href="Events.html">Events</a>
+    </nav>
+  </header>
+
+
+  <main>
+    <h1>Library Events</h1>
+    
+    <!-- Past Events Section -->
+    <section class="events-section">
+      <h2>Past Events</h2>
+      <div class="events-grid">
+        <div class="event-card">
+          <h3>Writer's Speech</h3>
+          <p class="date">March 20, 2025</p>
+          <p>An inspiring speech by a renowned author.</p>
+        </div>
+        <div class="event-card">
+          <h3>Reader's Experience</h3>
+          <p class="date">March 22, 2025</p>
+          <p>Readers shared their memorable book experiences.</p>
+        </div>
+        <div class="event-card">
+          <h3>Book Giveaway</h3>
+          <p class="date">March 25, 2025</p>
+          <p>Enjoy free books at our special giveaway event.</p>
+        </div>
+        <div class="event-card">
+          <h3>Science Seminar</h3>
+          <p class="date">March 27, 2025</p>
+          <p>A deep dive into the latest scientific breakthroughs.</p>
+        </div>
+        <div class="event-card">
+          <h3>Yoga Event</h3>
+          <p class="date">March 28, 2025</p>
+          <p>A rejuvenating yoga session for the community.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Upcoming Events Section -->
+    <section class="events-section">
+      <h2>Upcoming Events</h2>
+      <div class="events-grid">
+        <div class="event-card">
+          <h3>Creative Writing Workshop</h3>
+          <p class="date">April 15, 2025</p>
+          <p>Enhance your writing skills with industry experts.</p>
+        </div>
+        <div class="event-card">
+          <h3>Author Meet & Greet</h3>
+          <p class="date">April 18, 2025</p>
+          <p>Meet your favorite authors and get your books signed.</p>
+        </div>
+        <div class="event-card">
+          <h3>Book Launch</h3>
+          <p class="date">April 20, 2025</p>
+          <p>Celebrate the launch of an exciting new title.</p>
+        </div>
+        <div class="event-card">
+          <h3>Tech Talk Seminar</h3>
+          <p class="date">April 22, 2025</p>
+          <p>Explore emerging technology trends and innovations.</p>
+        </div>
+        <div class="event-card">
+          <h3>Community Discussion</h3>
+          <p class="date">April 25, 2025</p>
+          <p>Join an open forum to discuss new ideas and initiatives.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 Open Community Library. All rights reserved.
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Closed Requests - Library Dashboard</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f4f7f6;
+      color: #333;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+      background-color: #fff;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    header img {
+      height: 60px;
+    }
+
+    nav {
+      display: flex;
+      gap: 30px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 600;
+      position: relative;
+      padding: 5px 0;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #4CAF50;
+    }
+
+    main {
+      padding: 40px 20px;
+    }
+
+    .container {
+      padding: 30px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background-color: white;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card h3 {
+      margin-top: 0;
+      color: #4a90e2;
+    }
+
+    .card p {
+      margin: 8px 0;
+    }
+
+    .dates {
+      margin-top: 10px;
+      font-size: 0.9rem;
+      color: #777;
+    }
+
+    /* Logout Button */
+    nav a.logout {
+      background-color: #e53935;
+      padding: 10px 20px;
+      border-radius: 25px;
+      color: white;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+
+    nav a.logout:hover {
+      background-color: #c62828;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="logo.png" alt="Library Logo">
+    <nav>
+      <a href="Member_Dashboard.html">Dashboard</a>
+      <a href="index.html" >Logout</a>
+    </nav>
+  </header>
+
+  <main>
+    <center><h2>Closed Book Requests</h2></center>
+
+    <div class="container">
+
+      <div class="card">
+        <h3>Request ID: CR001</h3>
+        <p>Book: The Science of Everything</p>
+        <div class="dates">
+          <p>Accepted Date: 15-Mar-2025</p>
+          <p>Submitted Date: 25-Mar-2025</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Request ID: CR002</h3>
+        <p>Book: Yoga for Mindfulness</p>
+        <div class="dates">
+          <p>Accepted Date: 10-Mar-2025</p>
+          <p>Submitted Date: 20-Mar-2025</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Request ID: CR003</h3>
+        <p>Book: Future of AI</p>
+        <div class="dates">
+          <p>Accepted Date: 05-Mar-2025</p>
+          <p>Submitted Date: 15-Mar-2025</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Request ID: CR004</h3>
+        <p>Book: Reader's Experience</p>
+        <div class="dates">
+          <p>Accepted Date: 18-Feb-2025</p>
+          <p>Submitted Date: 28-Feb-2025</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Request ID: CR005</h3>
+        <p>Book: Writer's Workshop</p>
+        <div class="dates">
+          <p>Accepted Date: 12-Feb-2025</p>
+          <p>Submitted Date: 22-Feb-2025</p>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+</body>
+</html>

@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login - Open Community Library</title>
+  <style>
+    /* Global Reset & Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    body {
+      background-color: #f4f7f6;
+      color: #333;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+      background-color: #fff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    header img {
+      height: 60px;
+    }
+    nav {
+      display: flex;
+      gap: 30px;
+    }
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 600;
+      position: relative;
+      padding: 5px 0;
+      transition: color 0.3s ease;
+    }
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      background: #4CAF50;
+      left: 0;
+      bottom: 0;
+      transition: width 0.3s ease;
+    }
+    nav a:hover {
+      color: #4CAF50;
+    }
+    nav a:hover::after {
+      width: 100%;
+    }
+    /* Login Container */
+    .login-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 80vh;
+      padding: 20px;
+    }
+    .login-form {
+      background-color: #fff;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      width: 100%;
+      max-width: 400px;
+    }
+    .login-form h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #2e7d32;
+    }
+    .login-form label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: 600;
+    }
+    .login-form input[type="text"],
+    .login-form input[type="password"],
+    .login-form input[type="number"] {
+      width: 100%;
+      padding: 10px 15px;
+      margin-bottom: 20px;
+      border: 2px solid #ddd;
+      border-radius: 25px;
+      transition: border-color 0.3s ease;
+    }
+    .login-form input[type="text"]:focus,
+    .login-form input[type="password"]:focus,
+    .login-form input[type="number"]:focus {
+      border-color: #4CAF50;
+      outline: none;
+    }
+    /* Modern Horizontal Radio Buttons */
+    .radio-group {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+      gap: 20px;
+    }
+    .radio-container {
+      position: relative;
+      padding-left: 35px;
+      cursor: pointer;
+      font-size: 16px;
+      user-select: none;
+      color: #555;
+    }
+    /* Hide the browser's default radio button */
+    .radio-container input {
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+    }
+    /* Create a custom radio button */
+    .radio-container .checkmark {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 20px;
+      width: 20px;
+      background-color: #eee;
+      border-radius: 50%;
+      transition: background-color 0.3s ease, border-color 0.3s ease;
+      border: 2px solid #ddd;
+    }
+    /* When the radio button is checked, update the style */
+    .radio-container input:checked ~ .checkmark {
+      background-color: #4CAF50;
+      border-color: #4CAF50;
+    }
+    /* Create the indicator (the dot/circle inside the radio button) */
+    .radio-container .checkmark:after {
+      content: "";
+      position: absolute;
+      display: none;
+    }
+    /* Show the indicator when checked */
+    .radio-container input:checked ~ .checkmark:after {
+      display: block;
+    }
+    /* Style the indicator */
+    .radio-container .checkmark:after {
+      top: 5px;
+      left: 5px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: white;
+    }
+    /* Generate OTP Button Style */
+    .generate-otp {
+      width: 100%;
+      padding: 10px 15px;
+      background-color: #4CAF50;
+      border: none;
+      border-radius: 25px;
+      color: #fff;
+      font-size: 14px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      margin-bottom: 20px;
+    }
+    .generate-otp:hover {
+      background-color: #388e3c;
+    }
+    /* Submit Button */
+    .login-form button[type="submit"] {
+      width: 100%;
+      padding: 12px;
+      background-color: #4CAF50;
+      border: none;
+      border-radius: 25px;
+      color: #fff;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .login-form button[type="submit"]:hover {
+      background-color: #388e3c;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="Logo.png" alt="Library Logo">
+    <nav>
+      <a href="index.html">Home</a>
+     <a href="Explore.html">Explore</a>
+      <a href="Login.html">Login</a>
+      <a href="Events.html">Events</a>
+    </nav>
+  </header>
+
+
+  <div class="login-container">
+    <form class="login-form">
+      <h2>Login</h2>
+      
+      <!-- Horizontal Radio Buttons -->
+      <div class="radio-group">
+        <label class="radio-container">Member Login
+          <input type="radio" name="loginType" value="member" checked>
+          <span class="checkmark"></span>
+        </label>
+        <label class="radio-container">Staff Login
+          <input type="radio" name="loginType" value="staff">
+          <span class="checkmark"></span>
+        </label>
+      </div>
+      
+      <!-- User ID Field -->
+      <label for="userId">User ID</label>
+      <input type="text" id="userId" placeholder="Enter your ID">
+      
+      <!-- Password Field -->
+      <label for="password">Password</label>
+      <input type="password" id="password" placeholder="Enter your password">
+      
+      <!-- Mobile Number Field -->
+      <label for="mobile">Mobile Number</label>
+      <input type="text" id="mobile" placeholder="Enter your mobile number">
+      
+      <!-- Generate OTP Button -->
+      <button type="button" class="generate-otp">Generate OTP</button>
+      
+      <!-- OTP Field -->
+      <label for="otp">OTP</label>
+      <input type="number" id="otp" placeholder="Enter OTP">
+      
+      <!-- Login Button -->
+      <button type="submit">Login</button>
+    </form>
+  </div>
+
+</body>
+</html>

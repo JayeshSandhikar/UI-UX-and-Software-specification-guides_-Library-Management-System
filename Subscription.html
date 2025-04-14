@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Subscription Status - Open Community Library</title>
+  <style>
+    /* Global Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    body {
+      background-color: #f4f7f6;
+      color: #333;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+      background-color: #fff;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    header img {
+      height: 60px;
+    }
+    nav {
+      display: flex;
+      gap: 30px;
+    }
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 600;
+      position: relative;
+      padding: 5px 0;
+      transition: color 0.3s ease;
+    }
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      background: #4CAF50;
+      left: 0;
+      bottom: 0;
+      transition: width 0.3s ease;
+    }
+    nav a:hover {
+      color: #4CAF50;
+    }
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    main {
+      padding: 40px 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 80vh;
+    }
+
+    /* Single Card Style */
+    .subscription-card {
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      text-align: center;
+      max-width: 400px;
+      width: 100%;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .subscription-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+    }
+
+    .subscription-card h2 {
+      margin-bottom: 15px;
+      color: #2e7d32;
+    }
+
+    .subscription-card p {
+      margin: 8px 0;
+      font-size: 16px;
+      color: #555;
+    }
+
+    .card-buttons {
+      margin-top: 20px;
+    }
+
+    .card-buttons button {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 25px;
+      padding: 10px 20px;
+      margin: 0 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .card-buttons button:hover {
+      background-color: #388e3c;
+    }
+
+    .card-buttons .terminate {
+      background-color: #e53935;
+    }
+
+    .card-buttons .terminate:hover {
+      background-color: #c62828;
+    }
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="logo.png" alt="Library Logo">
+    <nav>
+      <a href="Member_Dashboard.html">Dashboard</a>
+      <a href="logout.html">Logout</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="subscription-card">
+      <h2>My Subscription Status</h2>
+      <p><strong>Name:</strong> John Doe</p>
+      <p><strong>Member ID:</strong> M12345</p>
+      <p><strong>Validity Till:</strong> 31-Dec-2025</p>
+
+      <div class="card-buttons">
+        <button>Extend</button>
+        <button class="terminate">Terminate</button>
+      </div>
+    </div>
+  </main>
+
+</body>
+</html>
